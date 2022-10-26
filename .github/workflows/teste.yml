@@ -1,0 +1,41 @@
+name: mk-user-crud-service
+
+on: [push, pull_request]
+
+jobs:
+  build_and_test:
+    name: Build and Test
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      ENVIRONMENT: test
+      SECRET_KEY_AUTH: ${{ secrets.SECRET_KEY_AUTH }}
+    strategy:
+      matrix:
+        python-version: [3.8.11]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set Up python ${{matrix.python-version}}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{matrix.python-version}}
+      - name: Update Package References
+        run: sudo apt update
+      - name: Install Package Dependencies
+        run: sudo apt install libcurl4-openssl-dev libssl-dev
+      - name: Cache pip
+        id: cache-pip
+        uses: actions/cache@v2
+        with:
+          path: /opt/hostedtoolcache/Python/${{matrix.python-version}}/x64/
+          key: python${{matrix.python-version}}-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+      - name: Install dependencies
+        run: |
+          pip3 install flake8
+          pip3 install -r requirements.txt
+        working-directory: ${{env.working-directory}}
+      - name: Run Flake8
+        run: |
+          flake8
+        working-directory: ${{env.working-directory}}
