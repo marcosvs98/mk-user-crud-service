@@ -104,6 +104,11 @@ Executar as migrations:
 make migrate-upgrade
 ```
 
+Executar revisão e  atualização no conteiner
+```bash
+docker-compose run web {make COMANDO}
+```
+
 Levantar todas as dependências:
 ```bash
 make up

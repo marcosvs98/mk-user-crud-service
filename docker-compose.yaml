@@ -18,7 +18,7 @@ services:
       - mysql
     image: phpmyadmin/phpmyadmin:latest
     container_name: flask_phpmyadmin
-    restart: unless-stopped
+    #restart: unless-stopped
     ports:
       - "5010:80"
     environment:
