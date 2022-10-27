@@ -1,16 +1,16 @@
 # mk-user-crud-service
 
-## 📋 Sumário
+## Sumário
 
-- [📋 Sumário](#-sumário)
-- [🛠 Tecnologias utilizadas](#-tecnologias-utilizadas)
-- [🗂 Estrutura de pastas](#-estrutura-de-pastas)
-- [▶️Executando o projeto](#-executando-o-projeto)
-- [⚙ Comnandos extras](#-comandos-extras)
-- [📚 Como utilizar este projeto](#-como-utilizar-este-projeto)
+- [Sumário](#-sumário)
+- [Tecnologias utilizadas](#-tecnologias-utilizadas)
+- [Estrutura de pastas](#-estrutura-de-pastas)
+- [Executando o projeto](#-executando-o-projeto)
+- [Comnandos extras](#-comandos-extras)
+- [Como utilizar este projeto](#-como-utilizar-este-projeto)
 
 
-## 🛠 Tecnologias e Padrões utilizados
+## Tecnologias e Padrões utilizados
 
 Para o desenvolvimento deste projeto, as seguintes tecnologias foram usadas:
 
@@ -33,7 +33,7 @@ A estrutura do código segue uma organização de pacote por domínio, ou seja, 
 mapeado em nossa estrutura de domínios, nesse caso, teremos na pasta `src.packages` a parte `users` que conterá todo o
 código necessário para o tratamento de usuários com baixo acoplamento e contexto bem delimitado.
 
-## 🗂 Estrutura de pastas
+## Estrutura de pastas
 
 ```bash
 /src
@@ -54,7 +54,7 @@ código necessário para o tratamento de usuários com baixo acoplamento e conte
     /users # Como sugestão, devemos isolar nossas suites de testes por domínio
 ```
 
-## ▶️ Executando o projeto
+## Executando o projeto
 
 ### Opção 1 - Via Docker Compose
 
@@ -90,7 +90,7 @@ poetry install
 
 Você poderá encontrar mais instruções sobre o poetry na sua [documentação oficial](https://python-poetry.org/docs/)
 
-## ⚙️ Comandos Extras
+## Comandos Extras
 
 O projeto possui um arquivo `Makefile` com alguns comandos make que facilitam a preparação de dependências.
 
@@ -119,7 +119,7 @@ Executar todos os testes:
 make tests
 ```
 
-## 📚 Como utilizar este projeto
+## Como utilizar este projeto
 
 Criar um novo usuário:
 ```bash
