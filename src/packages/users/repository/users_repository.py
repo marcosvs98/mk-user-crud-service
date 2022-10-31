@@ -2,7 +2,7 @@ from uuid import uuid4
 
 from sqlalchemy.orm import Session
 from database.models import User as UserORM
-from packages.users.ports.users_database_interface import UsersDatabaseInterface
+from packages.users.ports.users_database_interface import UsersDatabaseInterface  # noqa: E501
 from packages.users.schemas.users import User
 
 

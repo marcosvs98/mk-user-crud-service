@@ -1,6 +1,5 @@
 import abc
 from typing import Union
-
 from sqlalchemy.orm import Session
 from packages.users.schemas.users import User
 

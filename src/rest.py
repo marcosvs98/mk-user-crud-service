@@ -20,7 +20,7 @@ def init_middlewares(app: FastAPI):
     if not ACCEPT_PARALLEL_REQUESTS:
         app.add_middleware(
             PreventDuplicatesMiddleware,
-            cache=RedisAdapter(silent_mode=True)
+            cache=RedisAdapter(silent_mode=CACHE_SILENT_MODE)
         )
 
 

@@ -20,4 +20,8 @@ if USE_DATABASE:
 else:
     DATABASE_URL = "sqlite:///db.sqlite"
 
-ACCEPT_PARALLEL_REQUESTS = config("ACCEPT_PARALLEL_REQUESTS", default=False, cast=bool)
+ACCEPT_PARALLEL_REQUESTS = config(
+    "ACCEPT_PARALLEL_REQUESTS",
+    default=False,
+    cast=bool
+)

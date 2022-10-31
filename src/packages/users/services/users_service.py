@@ -1,4 +1,4 @@
-from packages.users.ports.users_database_interface import UsersDatabaseInterface
+from packages.users.ports.users_database_interface import UsersDatabaseInterface  # noqa: E501
 from packages.users.ports.users_service_inteface import UsersServiceInterface
 from packages.users.schemas.users import User
 

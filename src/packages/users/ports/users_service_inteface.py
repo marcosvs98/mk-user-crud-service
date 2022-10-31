@@ -1,6 +1,6 @@
 import abc
 
-from packages.users.ports.users_database_interface import UsersDatabaseInterface
+from packages.users.ports.users_database_interface import UsersDatabaseInterface  # noqa: E501
 from packages.users.schemas.users import User
 
 
@@ -31,4 +31,3 @@ class UsersServiceInterface(abc.ABC):
     @abc.abstractmethod
     async def delete_user(self, user_id: int):
         raise NotImplementedError
-
