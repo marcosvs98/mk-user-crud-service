@@ -36,5 +36,5 @@ jobs:
         working-directory: ${{env.working-directory}}
       - name: Run Flake8
         run: |
-          flake8
+          flake8 --ignore=W291,E128,E122
         working-directory: ${{env.working-directory}}

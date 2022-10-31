@@ -1,51 +1,40 @@
+import os
+import sys
+from dotenv import load_dotenv
 from logging.config import fileConfig
-
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-
 from alembic import context
-
-import os, sys
-from dotenv import load_dotenv
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 load_dotenv(os.path.join(BASE_DIR, ".env"))
 sys.path.append(BASE_DIR)
 
-
-import os
-import sys
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))  # noqa: E501
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
 
 config.set_main_option("script_location", "src/database/migrations")
-config.set_main_option("sqlalchemy.url", os.environ.get("DATABASE_URL", "sqlite:///db.sqlite"))
+config.set_main_option("sqlalchemy.url", os.environ.get("DATABASE_URL", "sqlite:///db.sqlite"))  # noqa: E501
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
 fileConfig(config.config_file_name)
 
-
 # add your model's MetaData object here
 # for 'autogenerate' support
-# from myapp import mymodel
 try:
     from database.base_model import ORMBaseModel
-    from database import models
+    from database import models  # noqa: F401
 except ModuleNotFoundError:
     from base_model import ORMBaseModel
-    import models
+    import models  # noqa: F401
 
 
 target_metadata = ORMBaseModel.metadata
 
-# other values from the config, defined by the needs of env.py,
-# can be acquired:
-# my_important_option = config.get_main_option("my_important_option")
-# ... etc.
 
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode.

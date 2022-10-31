@@ -41,7 +41,7 @@ class PreventDuplicatesMiddleware(BaseHTTPMiddleware):
         return hashlib.md5(signature.encode("utf")).hexdigest()
 
     async def save_fingerprint(self, fingerprint):
-        await self.cache.set(key=fingerprint, data={},  ttl=60*30)
+        await self.cache.set(key=fingerprint, data={}, ttl=60 * 30)
 
     async def delete_fingerprint(self, fingerprint):
         await self.cache.delete(key=fingerprint)
